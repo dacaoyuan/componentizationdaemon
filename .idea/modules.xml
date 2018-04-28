@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ComponentizationDaemon.iml" filepath="$PROJECT_DIR$/ComponentizationDaemon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appTourism/appTourism.iml" filepath="$PROJECT_DIR$/appTourism/appTourism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manor_module/manor_module.iml" filepath="$PROJECT_DIR$/manor_module/manor_module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
+    </modules>
+  </component>
+</project>

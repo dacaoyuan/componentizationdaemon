@@ -1,0 +1,1 @@
+include ':appTourism', ':manor_module', ':mylibrary'
