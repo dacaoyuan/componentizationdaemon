@@ -1,1 +1,1 @@
-include ':appTourism', ':manor_module', ':mylibrary'
+include ':appTourism', ':manor_module', ':mylibrary', ':backstage_module'

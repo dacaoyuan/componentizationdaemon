@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="backstage_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/backstage_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/backstage_colorPrimaryDark</item>
+        <item name="colorAccent">@color/backstage_colorAccent</item>
+    </style>
+
+</resources>

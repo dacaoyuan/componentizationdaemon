@@ -22,9 +22,16 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.manor).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "onClick: ddd");
                 ARouter.getInstance().build("/manor_/MainActivity").navigation();
 
+
+            }
+        });
+
+        findViewById(R.id.backstage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/backstage_/MainActivity").navigation();
 
             }
         });

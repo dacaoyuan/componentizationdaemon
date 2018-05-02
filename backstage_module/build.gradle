@@ -1,24 +1,27 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.alibaba.arouter'
+println isDebug.toBoolean()
+
+if (isDebug.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
 
 android {
     compileSdkVersion setup.compileSdkVersion
     buildToolsVersion setup.buildToolsVersion
+
     defaultConfig {
-        applicationId "com.example.componentizationdaemon"
         minSdkVersion setup.minSdkVersion
         targetSdkVersion setup.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [ moduleName : project.getName() ]
             }
         }
-
-
 
     }
     buildTypes {
@@ -28,30 +31,31 @@ android {
         }
     }
 
+    resourcePrefix "backstage_"
 
-
-
-
-
+    sourceSets {
+        main {
+            if (isDebug.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:${versions.supportLib}"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-
     compile "com.alibaba:arouter-api:${arouterVersion.arouter_api}"
     annotationProcessor "com.alibaba:arouter-compiler:${arouterVersion.arouter_compiler}"
 
-    if (!isDebug.toBoolean()) {//只有在正式版本下，才去依赖 “庄园” 子工程
-        compile project(':manor_module')
-        compile project(':backstage_module')
-    }else {
-        compile project(':mylibrary')
-    }
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
+    compile project(':mylibrary')
+    if (isDebug.toBoolean()) {
+
+    } else {
+
+    }
 }

@@ -18,4 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+
+    <Button
+        android:id="@+id/backstage"
+        android:text="跳转到后台管理模块"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

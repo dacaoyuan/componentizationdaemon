@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="backstage_colorPrimary">#3F51B5</color>
+    <color name="backstage_colorPrimaryDark">#303F9F</color>
+    <color name="backstage_colorAccent">#FF4081</color>
+
+    <color name="backstage_white">#ffffff</color>
+</resources>
