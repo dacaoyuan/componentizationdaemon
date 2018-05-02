@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.alibaba.arouter'
 
 android {
     compileSdkVersion setup.compileSdkVersion
@@ -10,6 +11,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+
+
+
     }
     buildTypes {
         release {
@@ -33,6 +43,9 @@ dependencies {
     compile "com.android.support:appcompat-v7:${versions.supportLib}"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
+    compile "com.alibaba:arouter-api:${arouterVersion.arouter_api}"
+    annotationProcessor "com.alibaba:arouter-compiler:${arouterVersion.arouter_compiler}"
 
     if (!isDebug.toBoolean()) {//只有在正式版本下，才去依赖 “庄园” 子工程
         compile project(':manor_module')

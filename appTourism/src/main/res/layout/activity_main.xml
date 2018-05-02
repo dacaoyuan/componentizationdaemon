@@ -7,9 +7,15 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="我是主工程"
         android:textSize="26sp"/>
+
+    <Button
+        android:id="@+id/manor"
+        android:text="跳转到庄园模块"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
