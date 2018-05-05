@@ -47,6 +47,8 @@ dependencies {
     compile "com.alibaba:arouter-api:${arouterVersion.arouter_api}"
     annotationProcessor "com.alibaba:arouter-compiler:${arouterVersion.arouter_compiler}"
 
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     if (!isDebug.toBoolean()) {//只有在正式版本下，才去依赖 “庄园” 子工程
         compile project(':manor_module')
         compile project(':backstage_module')

@@ -1,33 +1,50 @@
-package com.example.componentizationdaemon;
+package com.example.manorapp.application;
 
 import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.application.ApplicationService;
 import com.example.mylibrary.utils.LogUtil;
 
 /**
- * Created by yuanpk on 2018/5/2  9:52
+ * Created by yuanpk on 2018/5/2  14:38
  * <p>
  * Description:TODO
  */
 
-public class MyApplication extends Application {
-    private static final String TAG = "MyApplication";
-    public static Context mContext = null;
+public class ManorDebugApplication extends Application implements ApplicationService {
 
-    private static MyApplication INSTANCE = null;
+    private static final String TAG = "ManorDebugApplication";
+    private static ManorDebugApplication INSTANCE = null;
 
-    public static MyApplication getInstance() {
+    private static Context mContext = null;
+
+    public static ManorDebugApplication getInstance() {
+        Log.d(TAG, "get ShopDebugApplication");
         return INSTANCE;
     }
 
-   /* @Override
+    @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         INSTANCE = this;
-    }*/
+        mContext=this;
+    }
+
+
+    @Override
+    public void loadModuleApplicationService() {
+
+    }
+
+    @Override
+    public Application getApplication() {
+        return getInstance();
+    }
+
+
 
     @Override
     public void onCreate() {
@@ -39,8 +56,6 @@ public class MyApplication extends Application {
         }
         ARouter.init(this); // 尽可能早，推荐在Application中初始化
 
-        INSTANCE = this;
-        mContext = getApplicationContext();
         LogUtil.initXlog(true);//初始化日志打印，true：打印；false：不打印
 
 

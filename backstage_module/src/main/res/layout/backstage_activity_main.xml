@@ -8,9 +8,15 @@
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="我是后台管理模块"
         android:textSize="33sp"/>
+
+    <Button
+        android:id="@+id/btn_jump_manor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到庄园模块"/>
 
 </LinearLayout>

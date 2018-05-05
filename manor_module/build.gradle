@@ -2,8 +2,10 @@ println isDebug.toBoolean()
 
 if (isDebug.toBoolean()) {
     apply plugin: 'com.android.application'
+    apply plugin: 'com.alibaba.arouter'
 } else {
     apply plugin: 'com.android.library'
+
 }
 
 
@@ -12,6 +14,11 @@ android {
     buildToolsVersion setup.buildToolsVersion
 
     defaultConfig {
+        if (isDebug.toBoolean()) {
+            applicationId "com.example.componentizationdaemon"
+        } 
+
+
         minSdkVersion setup.minSdkVersion
         targetSdkVersion setup.targetSdkVersion
         versionCode 1
@@ -19,10 +26,17 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
 
+        resourcePrefix "manor_"
+
+        if (isDebug.toBoolean()) {
+            buildConfigField 'boolean', 'isDebug', 'true'
+        } else {
+            buildConfigField 'boolean', 'isDebug', 'false'
+        }
 
     }
     buildTypes {
@@ -33,7 +47,7 @@ android {
     }
 
 
-    resourcePrefix "manor_"
+
 
     sourceSets {
         main {
@@ -54,7 +68,6 @@ dependencies {
     compile "com.alibaba:arouter-api:${arouterVersion.arouter_api}"
     annotationProcessor "com.alibaba:arouter-compiler:${arouterVersion.arouter_compiler}"
 
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     compile project(':mylibrary')
     if (isDebug.toBoolean()) {
@@ -62,4 +75,5 @@ dependencies {
     } else {
 
     }
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

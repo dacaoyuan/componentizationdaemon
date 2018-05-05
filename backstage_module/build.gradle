@@ -12,6 +12,9 @@ android {
     buildToolsVersion setup.buildToolsVersion
 
     defaultConfig {
+        if (isDebug.toBoolean()) {
+            applicationId "com.example.componentizationdaemon"
+        }
         minSdkVersion setup.minSdkVersion
         targetSdkVersion setup.targetSdkVersion
         versionCode 1
@@ -23,6 +26,8 @@ android {
             }
         }
 
+        resourcePrefix "backstage_"
+
     }
     buildTypes {
         release {
@@ -31,7 +36,7 @@ android {
         }
     }
 
-    resourcePrefix "backstage_"
+
 
     sourceSets {
         main {

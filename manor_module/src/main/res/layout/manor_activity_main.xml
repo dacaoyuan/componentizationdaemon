@@ -8,9 +8,26 @@
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="我是庄园模块"
         android:textSize="33sp"/>
+
+    <Button
+        android:id="@+id/manor_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关于我们"/>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ceshi"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_3d_rotation"/>
+
 
 </LinearLayout>

@@ -2,6 +2,7 @@
           package="com.example.manorapp">
 
     <application
+        android:name=".application.ManorDebugApplication"
         android:allowBackup="true"
         android:label="ComponentizationDaemon"
         android:supportsRtl="true"
@@ -16,7 +17,8 @@
             </intent-filter>
         </activity>
 
-
+        <activity android:name=".AboutActivity">
+        </activity>
     </application>
 
 
